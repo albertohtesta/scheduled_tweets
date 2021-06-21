@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center justify-content-between">
 	<h1>Twitter accounts</h1>
 	<!-- esta es la url que nos da omniauth -->
-	<%= link_to "Connect a Twitter account", "/auth/twitter", method: :post, class: "btn btn-primary" %>
+	<%= button_to "Connect a Twitter account", "/auth/twitter", method: :post, class: "btn btn-primary" %>
 </div>
 <% @twitter_accounts.each do |twitter_account| %>
 	<div class="d-flex align-items-center mb-4">
