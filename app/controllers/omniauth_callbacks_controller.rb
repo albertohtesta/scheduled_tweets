@@ -1,4 +1,5 @@
 class OmniauthCallbacksController < ApplicationController
+	before_action :require_user_logged_in!
 	def twitter
 		Rails.logger.info auth # para hacer un console al objeto 
 		twitter_account = Current.user.twitter_accounts.where(username: auth.info.nickname).first_or_initialize

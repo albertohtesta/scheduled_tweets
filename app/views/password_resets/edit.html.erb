@@ -1,6 +1,6 @@
 <h1>Reset your password</h1>
 <!-- password_reset_edit_path(token: params[:token]) aqui se incluye el token para que
-pueda llegar hasta el update, ya que no hay usuario logeado de donde tomar el dato -->
+pueda llegar hasta el update, ya que no hay usuario logeado de donde tomar el dato y para que con el token se cheque la caducidad del mismo-->
 <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |form| %>
 	<!-- recordar que para que funcione el form.object la forma debe de tener un model  -->
 	<% if form.object.errors.any? %>

@@ -10,7 +10,7 @@ class Tweet < ApplicationRecord
   end
 
   after_save_commit do
-  	if publish_at_previously_changed?
+  	if publish_at_previously_changed? # si se acaba de grabar o si se le modifico el publish_at
   		TweetJob.set(wait_until: publish_at).perform_later(self)
 	end
   end
