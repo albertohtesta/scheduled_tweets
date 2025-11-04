@@ -1,9 +1,9 @@
 class PasswordResetsController < ApplicationController
-  def new
+  def new                                                  # crea una forma pidiendo el email
   end
 
-  def create
-    @user = User.find_by(email: params[:email])
+  def create                                               # busca el usuario y crea el mailer y lo envia con la liga y token 
+    @user = User.find_by(email: params[:email])            # para hacer el cambio de password
 
     if @user.present?
       # Send email
@@ -13,13 +13,13 @@ class PasswordResetsController < ApplicationController
     redirect_to root_path, notice: "If an account with that email was found, we have sent a link to reset your password."
   end
 
-  def edit
+  def edit                                                  # verifica token, y en la forma pide el nuevo password
     @user = User.find_signed!(params[:token], purpose: "password_reset")
   rescue ActiveSupport::MessageVerifier::InvalidSignature
     redirect_to sign_in_path, alert: "Your token has expired. Please try again."
   end
 
-  def update
+  def update                                                # actualiza el password
     @user = User.find_signed!(params[:token], purpose: "password_reset")
     if @user.update(password_params)
       redirect_to sign_in_path, notice: "Your password was reset successfully. Please sign in."
