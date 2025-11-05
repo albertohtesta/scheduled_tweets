@@ -1,6 +1,6 @@
 <h1>Edit Password</h1>
 
-<%= form_with model: Current.user, data: { turbo: false } do |form| %>
+<%= form_with model: Current.user, url: password_path, data: { turbo: false } do |form| %>
   <%= render "shared/form_errors", form: form %>
 
   <div class="mb-3">
