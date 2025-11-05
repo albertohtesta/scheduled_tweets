@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "about", to: "about#index"
 
-  get "password", to: "passwords#edit", as: :edit_password
-  patch "password", to: "passwords#update"
+  #get "password", to: "passwords#edit", as: :edit_password
+  #patch "password", to: "passwords#update"
+  resource :password, only: [:edit, :update]
 
   get "sign_up", to: "registrations#new"
   post "sign_up", to: "registrations#create"
