@@ -4,7 +4,7 @@
   <div class="mb-3">
     <%= form.label :twitter_account_id %>
     <%= form.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control" } %>
-    <%= link_to "Connect your Twitter Account", "/auth/twitter" %>
+    <%= link_to "Connect your Twitter Account", "/auth/twitter", data: { turbo: false } %>
   </div>
 
   <div class="mb-3">
